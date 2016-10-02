@@ -25,10 +25,10 @@ Here are two different definitions of square-list. Complete both of them by fill
       (cons (square (car items))
             (square-list (cdr items)))))
 
-(define (square-list' items)
+(define (square-list-via-map items)
   (map square items))
 
 ;; (square-list (list 1 2 3 4))
-;; -> (1 4 9 16)
-;; (square-list' (list 1 2 3 4))
-;; -> (1 4 9 16)
+;; (1 4 9 16)
+;; (square-list-via-map (list 1 2 3 4))
+;; (1 4 9 16)

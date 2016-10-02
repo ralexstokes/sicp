@@ -13,9 +13,7 @@ The value returned by the call to for-each (not illustrated above) can be someth
 
 |#
 
-(define (for-each' proc items)
-  (if (null? items)
-      #t
-      (let ((item (car items)))
-        (proc item)
-        (for-each' proc (cdr items)))))
+(define (-for-each proc items)
+  (cond ((null? items) #t)
+        (else (proc (car items))
+              (-for-each proc (cdr items)))))

@@ -4,6 +4,8 @@ Modify your reverse procedure of exercise 2.18 to produce a deep-reverse procedu
 
 |#
 
+(define (add x y) (+ x y))
+
 (define (append list1 list2)
   (if (null? list1)
       list2
@@ -16,11 +18,10 @@ Modify your reverse procedure of exercise 2.18 to produce a deep-reverse procedu
       (append (reverse (cdr items))
               (list (car items)))))
 
-(define (deep-reverse coll)
-  (reverse (map (lambda (x)
-                  (if (list? x)
-                      (reverse x)
-                      x)) coll)))
+(define (deep-reverse items)
+  (if (not (null? items))
+      (reverse (cons (car items)
+                     (deep-reverse (cdr items))))))
 
 ;; (define x (list (list 1 2) (list 3 4)))
 ;; (deep-reverse x)

@@ -15,7 +15,7 @@ Define a procedure reverse that takes a list as argument and returns a list of t
 
 (define (reverse items)
   (if (null? items)
-      '()
+      items
       (append (reverse (cdr items))
               (list (car items)))))
 
