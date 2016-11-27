@@ -62,7 +62,6 @@
 (define (binding-var binding) (car binding))
 (define (binding-exp binding) (cadr binding))
 (define (unzip-bindings bindings)
-  ;; NOTE doesn't handle mismatch in cardinality of vars and exps
   (define (iter bindings vars exps)
     (if (null? bindings) (cons vars exps)
         (iter (cdr bindings)
