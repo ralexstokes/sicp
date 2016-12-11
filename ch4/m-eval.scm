@@ -184,6 +184,8 @@
         (list '- -)
         (list '* *)
         (list '/ /)
+        (list 'not not)
+        (list '= =)
         ))
 (define (primitive-procedure-names)
   (map car
