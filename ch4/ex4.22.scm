@@ -13,7 +13,7 @@
               (cons (binding-var (car bindings)) vars)
               (cons (binding-exp (car bindings)) exps))))
   (iter bindings '() '()))
-(define (let-body exp) (caddr exp))
+(define (let-body exp) (cddr exp))
 
 (define (let->combination exp)
   (expand-let (let-bindings exp) (let-body exp)))
@@ -21,7 +21,7 @@
   (let ((vars-exps (unzip-bindings bindings)))
     (let ((vars (car vars-exps))
           (exps (cdr vars-exps)))
-      (cons (make-lambda vars (list body))
+      (cons (make-lambda vars body)
             exps))))
 
 (define (analyze exp)
